@@ -1,0 +1,181 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # C for Celcius, F for Fahrenheit
+  temperature_unit: C
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Bucharest
+
+  latitude: 44.435509
+  longitude: 26.102528
+  
+  customize:
+    sensor.Temp1:
+      icon: 'mdi:thermometer-lines'
+    sensor.Temp2:
+      icon: 'mdi:fridge-filled-top'
+    sensor.Temp3:
+      icon: 'mdi:fridge-filled-bottom'
+      
+# Enables support for tracking state changes over time.
+#history:
+
+# View all events in a logbook
+#logbook:
+
+# Enables the frontend
+frontend:
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Track the sun
+sun:
+  elevation: 100
+
+# Allows you to issue voice commands from the frontend
+# conversation:
+
+
+mqtt:
+  broker: 192.168.1.101
+  port: 1883
+
+switch 1:
+  platform: mqtt
+  state_topic: "M/10/1/V_LIGHT"
+  command_topic: "M/10/1/V_LIGHT"
+  name: "REL1"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+switch 2:
+  platform: mqtt
+  state_topic: "M/10/2/V_LIGHT"
+  command_topic: "M/10/2/V_LIGHT"
+  name: "REL2"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+switch 3:
+  platform: mqtt
+  state_topic: "M/10/3/V_LIGHT"
+  command_topic: "M/10/3/V_LIGHT"
+  name: "REL3"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+switch 4:
+  platform: mqtt
+  state_topic: "M/10/4/V_LIGHT"
+  command_topic: "M/10/4/V_LIGHT"
+  name: "REL4"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+sensor 1:
+  platform: mqtt
+  state_topic: "M/10/5/V_HUM"
+  name: "HUM_DHT"
+  unit_of_measurement: "%"
+  
+sensor 2:
+  platform: mqtt
+  state_topic: "M/10/6/V_TEMP"
+  name: "TempDHT"
+  unit_of_measurement: "°C" 
+
+sensor 3:
+  platform: mqtt
+  state_topic: "M/13/10/V_TEMP"
+  name: "Temp1"
+  unit_of_measurement: "°C"
+  
+sensor 4:
+  platform: mqtt
+  state_topic: "M/13/11/V_TEMP"
+  name: "Temp2"
+  unit_of_measurement: "°C"
+  
+sensor 5:
+  platform: mqtt
+  state_topic: "M/13/12/V_TEMP"
+  name: "Temp3"
+  unit_of_measurement: "°C"
+   
+binary_sensor 1:
+  platform: mqtt
+  state_topic: "M/11/1/V_TRIPPED"
+  name: "PIR1"
+  payload_on: "ON"
+  payload_of: "OFF"
+
+binary_sensor 2:
+  platform: mqtt
+  state_topic: "M/12/1/V_TRIPPED"
+  name: "SW1"
+  payload_on: "ON"
+  payload_of: "OFF"
+  
+sensor 6:
+  platform: mqtt
+  state_topic: "M/13/1/V_TEMP"
+  name: "Temp1"
+  unit_of_measurement: "°C"
+  
+sensor 7:
+  platform: mqtt
+  state_topic: "M/13/2/V_TEMP"
+  name: "Temp2"
+  unit_of_measurement: "°C"
+  
+sensor 8:
+  platform: mqtt
+  state_topic: "M/13/2/V_TEMP"
+  name: "Temp3"
+  unit_of_measurement: "°C"
+  
+sensor 9:
+  platform: mqtt
+  state_topic: "M/14/1/V_VAR1"
+  name: "Analog1"
+  unit_of_measurement: "UN"
+  
+sensor 10:
+  platform: mqtt
+  state_topic: "M/15/1/V_HUM"
+  name: "HUM_DHT"
+  unit_of_measurement: "%"
+  
+sensor 11:
+  platform: mqtt
+  state_topic: "M/15/2/V_TEMP"
+  name: "TempDHT"
+  unit_of_measurement: "°C"  
+  
+sensor 12:
+  platform: mqtt
+  state_topic: "M/16/1/V_VAR1"
+  name: "Gas"
+
+sensor 13:
+  platform: mqtt
+  state_topic: "M/17/1/V_DISTANCE"
+  name: "Distance"
+  unit_of_measurement: "cm"   
+  
+sensor 14:
+  platform: mqtt
+  state_topic: "M/18/1/V_LIGHT_LEVEL"
+  name: "Light"
+  unit_of_measurement: "Lux" 
+  
+group:
+  Room1:
+   - switch.REL1
+   - switch.REL2
+   - switch.REL3
+     
+      
+      
+      
